@@ -32,7 +32,7 @@ class UpdateSubjectAndMonthOfMonthlyChargeCommand extends Command
             ->get();
 
         foreach ($transactions as $transaction){
-            $transaction->subject = MonthlyCharge::find($transaction->monthly_charge_id)->financial_month_name;
+            $transaction->subject = MonthlyCharge::find($transaction->monthly_charge_id)->subject_and_month;
             $transaction->save();
         }
     }
