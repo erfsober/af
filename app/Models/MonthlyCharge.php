@@ -69,6 +69,10 @@ class MonthlyCharge extends Model {
         }
     }
 
+    public function getFinancialMonthNameAttribute(){
+        return verta($this->due_date)->subMonth()->subDay()->format('%B');
+    }
+
     public function getFinalAmountAttribute () {
         if ( $this->tenant->tenant_type_id == 1 || $this->tenant->tenant_type_id == 2 ) {
             if ( $this->tenant->has_passed_due_date_hazine_omrani ) {
@@ -101,8 +105,6 @@ class MonthlyCharge extends Model {
     }
 
     public function getSubjectAndMonthAttribute () {
-        $date = verta($this->due_date)->formatJalaliDate();
-
-        return "شارژ ماه {$this->month} ام به تاریخ $date";
+        return "پرداخت شارژ " . $this->financial_month_name;
     }
 }
