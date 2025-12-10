@@ -70,7 +70,7 @@ class MonthlyCharge extends Model {
     }
 
     public function getFinancialMonthNameAttribute(){
-        return verta($this->due_date)->subMonth()->subDay()->format('%B');
+        return verta($this->due_date)->subDay()->format('%B');
     }
 
     public function getFinalAmountAttribute () {
