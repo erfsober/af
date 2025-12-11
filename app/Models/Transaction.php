@@ -125,7 +125,9 @@ class Transaction extends Model {
                 $dueDate = Carbon::parse($monthlyCharge->due_date);
                 $paidDate = Carbon::parse($this->paid_at);
 
-                return $paidDate->diffInDays($dueDate);
+                $sign = $paidDate->gt($dueDate) ? -1 : 1;
+
+                return abs($paidDate->diffInDays($dueDate)) * $sign;
             }
         }
 
