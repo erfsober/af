@@ -116,4 +116,19 @@ class Transaction extends Model {
     public function getTenantOrOtherAttribute () {
         return $this->tenant_id ? $this->tenant->tenantType->type_fa : 'واحد متفرقه';
     }
+
+    public function paidSoonerOrLater()
+    {
+        if ($this->monthly_charge_id && $this->paid_at){
+            $monthlyCharge = $this->monthlyCharge;
+            if($monthlyCharge){
+                $dueDate = Carbon::parse($monthlyCharge->due_date);
+                $paidDate = Carbon::parse($this->paid_at);
+
+                return $paidDate->diffInDays($dueDate);
+            }
+        }
+
+        return null;
+    }
 }

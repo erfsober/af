@@ -70,7 +70,20 @@
                                         <td class="iransans-web">{{ $record->tenant->plaque }}</td>
                                         <td class="iransans-web">{{ $record->subject }}</td>
                                         <td class="iransans-web">{{ number_format($record->amount) }} ریال</td>
-                                        <td class="iransans-web">{{ $record->status }}</td>
+                                        <td class="iransans-web">
+                                            {{ $record->status }}
+                                            <br>
+                                            @if($record->paid_at)
+                                                @php $daysDiff = $record->paidSoonerOrLater(); @endphp
+                                                @if($daysDiff < 0)
+                                                    <span class="badge badge-success">{{ abs($daysDiff) }} روز زودتر</span>
+                                                @elseif($daysDiff == 0)
+                                                    <span class="badge badge-info">به موقع</span>
+                                                @else
+                                                    <span class="badge badge-danger">{{ $daysDiff }} روز دیرتر</span>
+                                                @endif
+                                            @endif
+                                        </td>
                                         <td class="iransans-web">{{ verta($record->created_at)->format('Y/m/d H:i:s') }}</td>
                                         <td class="iransans-web">
                                             @if($record->paid_at)

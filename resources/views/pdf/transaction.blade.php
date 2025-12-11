@@ -102,7 +102,7 @@
         &nbsp;
     </tr>
     <tr>
-        <th style="border-bottom: 1px solid #333;border-left: 1px solid #333" class="text-right dana-fa-number" colspan="6">تاریخ چاپ:
+        <th style="border-bottom: 1px solid #333;border-left: 1px solid #333" class="text-right dana-fa-number" colspan="6">تاریخ پرداخت:
             <span dir="ltr">{{ verta($transaction->created_at)->format('Y-m-d H:i:s') }}</span>
         </th>
         <th style="border-bottom: 1px solid #333;" class="text-right dana-fa-number " colspan="6">شناسه سفارش:
