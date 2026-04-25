@@ -264,3 +264,40 @@
 
 @endsection
 
+@push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const convertToEnglishDigits = (value) => {
+                const persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+                const englishDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+                return value
+                    .replace(/[\u06F0-\u06F9]/g, (char) => englishDigits[persianDigits.indexOf(char)])
+                    .replace(/[\u0660-\u0669]/g, (char) => englishDigits[char.charCodeAt(0) - 0x0660]);
+            };
+
+            const formatNumericInput = (input) => {
+                if (!input) {
+                    return;
+                }
+
+                input.addEventListener('input', (event) => {
+                    let value = event.target.value;
+                    value = convertToEnglishDigits(value);
+                    value = value.replace(/,/g, '');
+                    value = value.replace(/[^\d]/g, '');
+
+                    if (value === '') {
+                        event.target.value = '';
+                        return;
+                    }
+
+                    event.target.value = Number(value).toLocaleString();
+                });
+            };
+
+            formatNumericInput(document.getElementById('numberInput'));
+            formatNumericInput(document.getElementById('numberInput2'));
+        });
+    </script>
+@endpush
