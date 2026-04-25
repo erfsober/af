@@ -13,372 +13,1400 @@ class UpdateMonthlyChargeSeeder extends Seeder
      */
     public function run(): void
     {
-        foreach ($this->charges() as $charge){
-            $tenant = Tenant::query()->find((int)($charge['val0']));
-            if ($tenant){
-                $tenant->monthly_charge_amount = str_replace(',', '', $charge['val1']);
+        foreach ($this->charges() as $charge) {
+            $tenant = Tenant::query()
+                ->find((int) ($charge['plaque']));
+            if ($tenant) {
+                $tenant->monthly_charge_amount = $charge['monthly_charge'];
                 $tenant->save();
             }
         }
     }
 
-    public function charges () {
-        return array(
-            array("val0"=>" 1 ", "val1"=>"229,740,420"),
-            array("val0"=>" 2 ", "val1"=>"0"),
-            array("val0"=>" 3 ", "val1"=>"0"),
-            array("val0"=>" 4 ", "val1"=>"0"),
-            array("val0"=>" 5 ", "val1"=>"0"),
-            array("val0"=>" 6 ", "val1"=>"0"),
-            array("val0"=>" 7 ", "val1"=>"0"),
-            array("val0"=>" 8 ", "val1"=>"40,884,480"),
-            array("val0"=>" 9 ", "val1"=>"31,589,740"),
-            array("val0"=>" 10 ", "val1"=>"20,394,192"),
-            array("val0"=>" 11 ", "val1"=>"29,844,360"),
-            array("val0"=>" 12 ", "val1"=>"21,767,200"),
-            array("val0"=>" 13 ", "val1"=>"25,847,640"),
-            array("val0"=>" 14 ", "val1"=>"24,897,600"),
-            array("val0"=>" 15 ", "val1"=>"25,339,860"),
-            array("val0"=>" 16 ", "val1"=>"40,374,880"),
-            array("val0"=>" 17 ", "val1"=>"44,499,000"),
-            array("val0"=>" 18 ", "val1"=>"42,180,320"),
-            array("val0"=>" 19 ", "val1"=>"26,322,660"),
-            array("val0"=>" 20 ", "val1"=>"31,777,200"),
-            array("val0"=>" 21 ", "val1"=>"42,952,000"),
-            array("val0"=>" 22 ", "val1"=>"51,296,700"),
-            array("val0"=>" 23 ", "val1"=>"36,524,670"),
-            array("val0"=>" 24 ", "val1"=>"17,514,224"),
-            array("val0"=>" 25 ", "val1"=>"16,308,656"),
-            array("val0"=>" 26 ", "val1"=>"35,410,830"),
-            array("val0"=>" 27 ", "val1"=>"34,900,320"),
-            array("val0"=>" 28 ", "val1"=>"24,764,376"),
-            array("val0"=>" 29 ", "val1"=>"38,161,760"),
-            array("val0"=>" 30 ", "val1"=>"24,864,840"),
-            array("val0"=>" 31 ", "val1"=>"34,281,520"),
-            array("val0"=>" 32 ", "val1"=>"32,628,960"),
-            array("val0"=>" 33 ", "val1"=>"24,998,792"),
-            array("val0"=>" 34 ", "val1"=>"26,044,200"),
-            array("val0"=>" 35 ", "val1"=>"28,386,540"),
-            array("val0"=>" 36 ", "val1"=>"31,171,140"),
-            array("val0"=>" 37 ", "val1"=>"35,843,990"),
-            array("val0"=>" 38 ", "val1"=>"37,360,050"),
-            array("val0"=>" 39 ", "val1"=>"37,220,820"),
-            array("val0"=>" 40 ", "val1"=>"42,588,000"),
-            array("val0"=>" 41 ", "val1"=>"42,136,640"),
-            array("val0"=>" 42 ", "val1"=>"29,746,080"),
-            array("val0"=>" 43 ", "val1"=>"42,850,080"),
-            array("val0"=>" 44 ", "val1"=>"27,846,000"),
-            array("val0"=>" 45 ", "val1"=>"22,805,328"),
-            array("val0"=>" 46 ", "val1"=>"28,075,320"),
-            array("val0"=>" 47 ", "val1"=>"22,135,568"),
-            array("val0"=>" 48 ", "val1"=>"31,187,520"),
-            array("val0"=>" 49 ", "val1"=>"43,843,800"),
-            array("val0"=>" 50 ", "val1"=>"32,224,010"),
-            array("val0"=>" 51 ", "val1"=>"38,380,160"),
-            array("val0"=>" 52 ", "val1"=>"35,194,250"),
-            array("val0"=>" 53 ", "val1"=>"30,696,120"),
-            array("val0"=>" 54 ", "val1"=>"26,748,540"),
-            array("val0"=>" 55 ", "val1"=>"26,977,860"),
-            array("val0"=>" 56 ", "val1"=>"24,027,640"),
-            array("val0"=>" 57 ", "val1"=>"31,564,260"),
-            array("val0"=>" 58 ", "val1"=>"28,075,320"),
-            array("val0"=>" 59 ", "val1"=>"38,288,250"),
-            array("val0"=>" 60 ", "val1"=>"41,618,850"),
-            array("val0"=>" 61 ", "val1"=>"27,780,480"),
-            array("val0"=>" 62 ", "val1"=>"24,635,520"),
-            array("val0"=>" 63 ", "val1"=>"31,203,900"),
-            array("val0"=>" 64 ", "val1"=>"25,241,580"),
-            array("val0"=>" 65 ", "val1"=>"52,157,560"),
-            array("val0"=>" 66 ", "val1"=>"24,864,840"),
-            array("val0"=>" 67 ", "val1"=>"25,929,540"),
-            array("val0"=>" 68 ", "val1"=>"17,547,712"),
-            array("val0"=>" 69 ", "val1"=>"32,193,070"),
-            array("val0"=>" 70 ", "val1"=>"34,436,220"),
-            array("val0"=>" 71 ", "val1"=>"32,456,060"),
-            array("val0"=>" 72 ", "val1"=>"28,140,840"),
-            array("val0"=>" 73 ", "val1"=>"30,794,400"),
-            array("val0"=>" 74 ", "val1"=>"28,206,360"),
-            array("val0"=>" 75 ", "val1"=>"22,369,984"),
-            array("val0"=>" 76 ", "val1"=>"23,491,832"),
-            array("val0"=>" 77 ", "val1"=>"23,860,200"),
-            array("val0"=>" 78 ", "val1"=>"24,462,984"),
-            array("val0"=>" 79 ", "val1"=>"24,362,520"),
-            array("val0"=>" 80 ", "val1"=>"16,308,656"),
-            array("val0"=>" 81 ", "val1"=>"28,321,020"),
-            array("val0"=>" 82 ", "val1"=>"17,497,480"),
-            array("val0"=>" 83 ", "val1"=>"21,850,920"),
-            array("val0"=>" 84 ", "val1"=>"21,315,112"),
-            array("val0"=>" 85 ", "val1"=>"21,633,248"),
-            array("val0"=>" 86 ", "val1"=>"21,248,136"),
-            array("val0"=>" 87 ", "val1"=>"20,528,144"),
-            array("val0"=>" 88 ", "val1"=>"24,010,896"),
-            array("val0"=>" 89 ", "val1"=>"23,491,832"),
-            array("val0"=>" 90 ", "val1"=>"22,386,728"),
-            array("val0"=>" 91 ", "val1"=>"22,889,048"),
-            array("val0"=>" 92 ", "val1"=>"20,109,544"),
-            array("val0"=>" 93 ", "val1"=>"24,663,912"),
-            array("val0"=>" 94 ", "val1"=>"24,931,816"),
-            array("val0"=>" 95 ", "val1"=>"24,799,320"),
-            array("val0"=>" 96 ", "val1"=>"24,546,704"),
-            array("val0"=>" 97 ", "val1"=>"24,714,144"),
-            array("val0"=>" 98 ", "val1"=>"23,223,928"),
-            array("val0"=>" 99 ", "val1"=>"29,467,620"),
-            array("val0"=>" 100 ", "val1"=>"24,178,336"),
-            array("val0"=>" 101 ", "val1"=>"24,161,592"),
-            array("val0"=>" 102 ", "val1"=>"24,195,080"),
-            array("val0"=>" 103 ", "val1"=>"24,111,360"),
-            array("val0"=>" 104 ", "val1"=>"22,269,520"),
-            array("val0"=>" 105 ", "val1"=>"18,719,792"),
-            array("val0"=>" 106 ", "val1"=>"27,780,480"),
-            array("val0"=>" 107 ", "val1"=>"15,270,528"),
-            array("val0"=>" 108 ", "val1"=>"32,471,530"),
-            array("val0"=>" 109 ", "val1"=>"33,786,480"),
-            array("val0"=>" 110 ", "val1"=>"27,403,740"),
-            array("val0"=>" 111 ", "val1"=>"32,530,680"),
-            array("val0"=>" 112 ", "val1"=>"29,271,060"),
-            array("val0"=>" 113 ", "val1"=>"25,880,400"),
-            array("val0"=>" 114 ", "val1"=>"16,777,488"),
-            array("val0"=>" 115 ", "val1"=>"31,868,200"),
-            array("val0"=>" 201 ", "val1"=>"180,347,440"),
-            array("val0"=>" 202 ", "val1"=>"23,951,200"),
-            array("val0"=>" 203 ", "val1"=>"27,900,600"),
-            array("val0"=>" 204 ", "val1"=>"34,834,800"),
-            array("val0"=>" 205 ", "val1"=>"25,134,200"),
-            array("val0"=>" 206 ", "val1"=>"24,278,800"),
-            array("val0"=>" 207 ", "val1"=>"39,905,320"),
-            array("val0"=>" 208 ", "val1"=>"18,309,200"),
-            array("val0"=>" 209 ", "val1"=>"19,601,400"),
-            array("val0"=>" 210 ", "val1"=>"32,323,200"),
-            array("val0"=>" 211 ", "val1"=>"32,414,200"),
-            array("val0"=>" 212 ", "val1"=>"32,705,400"),
-            array("val0"=>" 213 ", "val1"=>"27,427,400"),
-            array("val0"=>" 214 ", "val1"=>"36,127,000"),
-            array("val0"=>" 215 ", "val1"=>"29,884,400"),
-            array("val0"=>" 216 ", "val1"=>"41,244,840"),
-            array("val0"=>" 217 ", "val1"=>"36,090,600"),
-            array("val0"=>" 218 ", "val1"=>"47,415,550"),
-            array("val0"=>" 219 ", "val1"=>"32,978,400"),
-            array("val0"=>" 220 ", "val1"=>"20,711,600"),
-            array("val0"=>" 221 ", "val1"=>"20,875,400"),
-            array("val0"=>" 222 ", "val1"=>"23,787,400"),
-            array("val0"=>" 223 ", "val1"=>"21,676,200"),
-            array("val0"=>" 224 ", "val1"=>"35,790,300"),
-            array("val0"=>" 226 ", "val1"=>"29,047,200"),
-            array("val0"=>" 227 ", "val1"=>"35,600,110"),
-            array("val0"=>" 228 ", "val1"=>"36,032,360"),
-            array("val0"=>" 229 ", "val1"=>"33,105,800"),
-            array("val0"=>" 230 ", "val1"=>"32,141,200"),
-            array("val0"=>" 231 ", "val1"=>"34,561,800"),
-            array("val0"=>" 232 ", "val1"=>"53,464,320"),
-            array("val0"=>" 233 ", "val1"=>"58,400,160"),
-            array("val0"=>" 234 ", "val1"=>"59,389,330"),
-            array("val0"=>" 235 ", "val1"=>"59,868,900"),
-            array("val0"=>" 236 ", "val1"=>"69,247,360"),
-            array("val0"=>" 237 ", "val1"=>"60,951,800"),
-            array("val0"=>" 238 ", "val1"=>"45,601,920"),
-            array("val0"=>" 239 ", "val1"=>"22,422,400"),
-            array("val0"=>" 240 ", "val1"=>"24,551,800"),
-            array("val0"=>" 241 ", "val1"=>"49,041,720"),
-            array("val0"=>" 242 ", "val1"=>"40,873,560"),
-            array("val0"=>" 243 ", "val1"=>"41,687,100"),
-            array("val0"=>" 244 ", "val1"=>"34,616,400"),
-            array("val0"=>" 245 ", "val1"=>"37,087,050"),
-            array("val0"=>" 246 ", "val1"=>"47,780,460"),
-            array("val0"=>" 247 ", "val1"=>"26,881,400"),
-            array("val0"=>" 248 ", "val1"=>"34,052,200"),
-            array("val0"=>" 249 ", "val1"=>"40,216,540"),
-            array("val0"=>" 250 ", "val1"=>"42,567,980"),
-            array("val0"=>" 251 ", "val1"=>"47,272,680"),
-            array("val0"=>" 252 ", "val1"=>"61,516,000"),
-            array("val0"=>" 253 ", "val1"=>"25,789,400"),
-            array("val0"=>" 254 ", "val1"=>"25,844,000"),
-            array("val0"=>" 255 ", "val1"=>"42,153,020"),
-            array("val0"=>" 256 ", "val1"=>"32,359,600"),
-            array("val0"=>" 257 ", "val1"=>"28,919,800"),
-            array("val0"=>" 258 ", "val1"=>"20,911,800"),
-            array("val0"=>" 259 ", "val1"=>"27,955,200"),
-            array("val0"=>" 260 ", "val1"=>"37,968,840"),
-            array("val0"=>" 261 ", "val1"=>"93,184,000"),
-            array("val0"=>" 262 ", "val1"=>"125,550,880"),
-            array("val0"=>" 263 ", "val1"=>"23,496,200"),
-            array("val0"=>" 264 ", "val1"=>"21,348,600"),
-            array("val0"=>" 265 ", "val1"=>"20,948,200"),
-            array("val0"=>" 266 ", "val1"=>"24,479,000"),
-            array("val0"=>" 267 ", "val1"=>"19,965,400"),
-            array("val0"=>" 268 ", "val1"=>"26,462,800"),
-            array("val0"=>" 269 ", "val1"=>"17,435,600"),
-            array("val0"=>" 270 ", "val1"=>"38,885,210"),
-            array("val0"=>" 271 ", "val1"=>"29,775,200"),
-            array("val0"=>" 272 ", "val1"=>"34,925,800"),
-            array("val0"=>" 273 ", "val1"=>"46,734,870"),
-            array("val0"=>" 301 ", "val1"=>"76,811,280"),
-            array("val0"=>" 302 ", "val1"=>"29,593,200"),
-            array("val0"=>" 303 ", "val1"=>"21,863,660"),
-            array("val0"=>" 304 ", "val1"=>"21,565,180"),
-            array("val0"=>" 305 ", "val1"=>"21,893,508"),
-            array("val0"=>" 306 ", "val1"=>"30,084,600"),
-            array("val0"=>" 307 ", "val1"=>"46,551,050"),
-            array("val0"=>" 308 ", "val1"=>"27,955,200"),
-            array("val0"=>" 309 ", "val1"=>"14,147,952"),
-            array("val0"=>" 310 ", "val1"=>"18,356,520"),
-            array("val0"=>" 311 ", "val1"=>"28,872,480"),
-            array("val0"=>" 312 ", "val1"=>"27,982,500"),
-            array("val0"=>" 313 ", "val1"=>"19,087,796"),
-            array("val0"=>" 314 ", "val1"=>"19,893,692"),
-            array("val0"=>" 315 ", "val1"=>"21,132,384"),
-            array("val0"=>" 316 ", "val1"=>"28,378,350"),
-            array("val0"=>" 317 ", "val1"=>"28,799,680"),
-            array("val0"=>" 318 ", "val1"=>"18,192,356"),
-            array("val0"=>" 319 ", "val1"=>"33,688,200"),
-            array("val0"=>" 320 ", "val1"=>"25,611,040"),
-            array("val0"=>" 321 ", "val1"=>"40,979,120"),
-            array("val0"=>" 322 ", "val1"=>"42,339,570"),
-            array("val0"=>" 323 ", "val1"=>"35,710,220"),
-            array("val0"=>" 324 ", "val1"=>"30,207,450"),
-            array("val0"=>" 325 ", "val1"=>"32,596,200"),
-            array("val0"=>" 326 ", "val1"=>"32,410,560"),
-            array("val0"=>" 327 ", "val1"=>"39,571,350"),
-            array("val0"=>" 328 ", "val1"=>"45,439,030"),
-            array("val0"=>" 329 ", "val1"=>"28,228,200"),
-            array("val0"=>" 330 ", "val1"=>"28,188,160"),
-            array("val0"=>" 331 ", "val1"=>"25,290,720"),
-            array("val0"=>" 332 ", "val1"=>"35,722,960"),
-            array("val0"=>" 333 ", "val1"=>"35,914,060"),
-            array("val0"=>" 334 ", "val1"=>"28,665,000"),
-            array("val0"=>" 335 ", "val1"=>"29,320,200"),
-            array("val0"=>" 336 ", "val1"=>"30,849,000"),
-            array("val0"=>" 337 ", "val1"=>"27,547,520"),
-            array("val0"=>" 338 ", "val1"=>"39,949,910"),
-            array("val0"=>" 339 ", "val1"=>"41,215,720"),
-            array("val0"=>" 340 ", "val1"=>"37,430,120"),
-            array("val0"=>" 341 ", "val1"=>"24,839,360"),
-            array("val0"=>" 342 ", "val1"=>"12,774,944"),
-            array("val0"=>" 343 ", "val1"=>"28,787,850"),
-            array("val0"=>" 344 ", "val1"=>"22,422,400"),
-            array("val0"=>" 345 ", "val1"=>"31,504,200"),
-            array("val0"=>" 346 ", "val1"=>"37,965,200"),
-            array("val0"=>" 347 ", "val1"=>"23,980,320"),
-            array("val0"=>" 348 ", "val1"=>"30,207,450"),
-            array("val0"=>" 349 ", "val1"=>"27,532,960"),
-            array("val0"=>" 350 ", "val1"=>"35,187,880"),
-            array("val0"=>" 351 ", "val1"=>"49,129,080"),
-            array("val0"=>" 352 ", "val1"=>"19,535,516"),
-            array("val0"=>" 353 ", "val1"=>"20,117,552"),
-            array("val0"=>" 354 ", "val1"=>"25,844,000"),
-            array("val0"=>" 355 ", "val1"=>"13,401,752"),
-            array("val0"=>" 356 ", "val1"=>"46,361,770"),
-            array("val0"=>" 357 ", "val1"=>"22,042,748"),
-            array("val0"=>" 358 ", "val1"=>"20,147,400"),
-            array("val0"=>" 359 ", "val1"=>"31,012,800"),
-            array("val0"=>" 360 ", "val1"=>"34,538,140"),
-            array("val0"=>" 361 ", "val1"=>"20,371,260"),
-            array("val0"=>" 362 ", "val1"=>"24,067,680"),
-            array("val0"=>" 363 ", "val1"=>"29,879,850"),
-            array("val0"=>" 364 ", "val1"=>"17,490,928"),
-            array("val0"=>" 365 ", "val1"=>"18,893,784"),
-            array("val0"=>" 366 ", "val1"=>"30,726,150"),
-            array("val0"=>" 367 ", "val1"=>"31,313,100"),
-            array("val0"=>" 368 ", "val1"=>"41,345,850"),
-            array("val0"=>" 369 ", "val1"=>"47,567,520"),
-            array("val0"=>" 370 ", "val1"=>"36,334,480"),
-            array("val0"=>" 371 ", "val1"=>"36,589,280"),
-            array("val0"=>" 372 ", "val1"=>"22,291,360"),
-            array("val0"=>" 373 ", "val1"=>"22,830,080"),
-            array("val0"=>" 374 ", "val1"=>"35,391,720"),
-            array("val0"=>" 375 ", "val1"=>"21,863,660"),
-            array("val0"=>" 376 ", "val1"=>"22,087,520"),
-            array("val0"=>" 377 ", "val1"=>"36,487,360"),
-            array("val0"=>" 378 ", "val1"=>"16,789,500"),
-            array("val0"=>" 379 ", "val1"=>"18,714,696"),
-            array("val0"=>" 380 ", "val1"=>"18,058,040"),
-            array("val0"=>" 381 ", "val1"=>"17,252,144"),
-            array("val0"=>" 382 ", "val1"=>"28,856,100"),
-            array("val0"=>" 383 ", "val1"=>"23,048,480"),
-            array("val0"=>" 384 ", "val1"=>"27,591,200"),
-            array("val0"=>" 385 ", "val1"=>"33,888,400"),
-            array("val0"=>" 386 ", "val1"=>"16,177,616"),
-            array("val0"=>" 387 ", "val1"=>"15,834,364"),
-            array("val0"=>" 388 ", "val1"=>"16,908,892"),
-            //
-            array("val0"=>"401", "val1"=>"45,126,900"),
-            array("val0"=>"402", "val1"=>"50,228,360"),
-            array("val0"=>"403", "val1"=>"50,705,200"),
-            array("val0"=>"404", "val1"=>"57,208,060"),
-            array("val0"=>"405", "val1"=>"49,240,100"),
-            array("val0"=>"406", "val1"=>"47,784,100"),
-            array("val0"=>"407", "val1"=>"46,264,400"),
-            array("val0"=>"408", "val1"=>"45,914,960"),
-            array("val0"=>"409", "val1"=>"29,524,950"),
-            array("val0"=>"410", "val1"=>"51,413,180"),
-            array("val0"=>"411", "val1"=>"42,374,150"),
-            array("val0"=>"412", "val1"=>"41,427,750"),
-            array("val0"=>"413", "val1"=>"43,070,300"),
-            array("val0"=>"414", "val1"=>"35,908,600"),
-            array("val0"=>"415", "val1"=>"50,075,480"),
-            array("val0"=>"416", "val1"=>"38,775,100"),
-            array("val0"=>"417", "val1"=>"38,142,650"),
-            array("val0"=>"418", "val1"=>"28,551,250"),
-            array("val0"=>"419", "val1"=>"40,986,400"),
-            array("val0"=>"420", "val1"=>"48,954,360"),
-            array("val0"=>"421", "val1"=>"48,603,100"),
-            array("val0"=>"422", "val1"=>"36,486,450"),
-            array("val0"=>"423", "val1"=>"32,955,650"),
-            array("val0"=>"424", "val1"=>"47,198,060"),
-            array("val0"=>"425", "val1"=>"54,157,740"),
-            array("val0"=>"426", "val1"=>"41,514,200"),
-            array("val0"=>"501", "val1"=>"45,126,900"),
-            array("val0"=>"502", "val1"=>"50,228,360"),
-            array("val0"=>"503", "val1"=>"50,705,200"),
-            array("val0"=>"504", "val1"=>"57,208,060"),
-            array("val0"=>"505", "val1"=>"49,240,100"),
-            array("val0"=>"506", "val1"=>"47,784,100"),
-            array("val0"=>"507", "val1"=>"46,264,400"),
-            array("val0"=>"508", "val1"=>"45,914,960"),
-            array("val0"=>"509", "val1"=>"29,524,950"),
-            array("val0"=>"510", "val1"=>"51,413,180"),
-            array("val0"=>"511", "val1"=>"42,374,150"),
-            array("val0"=>"512", "val1"=>"41,427,750"),
-            array("val0"=>"513", "val1"=>"43,070,300"),
-            array("val0"=>"514", "val1"=>"35,908,600"),
-            array("val0"=>"515", "val1"=>"50,075,480"),
-            array("val0"=>"516", "val1"=>"38,775,100"),
-            array("val0"=>"517", "val1"=>"38,142,650"),
-            array("val0"=>"518", "val1"=>"28,551,250"),
-            array("val0"=>"519", "val1"=>"40,986,400"),
-            array("val0"=>"520", "val1"=>"48,954,360"),
-            array("val0"=>"521", "val1"=>"48,603,100"),
-            array("val0"=>"522", "val1"=>"36,486,450"),
-            array("val0"=>"523", "val1"=>"32,955,650"),
-            array("val0"=>"524", "val1"=>"47,198,060"),
-            array("val0"=>"525", "val1"=>"54,157,740"),
-            array("val0"=>"526", "val1"=>"41,514,200"),
-            array("val0"=>"601", "val1"=>"45,126,900"),
-            array("val0"=>"602", "val1"=>"50,228,360"),
-            array("val0"=>"603", "val1"=>"50,705,200"),
-            array("val0"=>"604", "val1"=>"57,208,060"),
-            array("val0"=>"605", "val1"=>"49,240,100"),
-            array("val0"=>"606", "val1"=>"47,784,100"),
-            array("val0"=>"607", "val1"=>"46,264,400"),
-            array("val0"=>"608", "val1"=>"45,914,960"),
-            array("val0"=>"609", "val1"=>"29,524,950"),
-            array("val0"=>"610", "val1"=>"51,413,180"),
-            array("val0"=>"611", "val1"=>"42,374,150"),
-            array("val0"=>"612", "val1"=>"41,427,750"),
-            array("val0"=>"613", "val1"=>"43,070,300"),
-            array("val0"=>"614", "val1"=>"35,908,600"),
-            array("val0"=>"615", "val1"=>"50,075,480"),
-            array("val0"=>"616", "val1"=>"38,775,100"),
-            array("val0"=>"617", "val1"=>"38,142,650"),
-            array("val0"=>"618", "val1"=>"28,551,250"),
-            array("val0"=>"619", "val1"=>"40,986,400"),
-            array("val0"=>"620", "val1"=>"48,954,360"),
-            array("val0"=>"621", "val1"=>"48,603,100"),
-            array("val0"=>"622", "val1"=>"36,486,450"),
-            array("val0"=>"623", "val1"=>"32,955,650"),
-            array("val0"=>"624", "val1"=>"47,198,060"),
-            array("val0"=>"625", "val1"=>"54,157,740"),
-            array("val0"=>"626", "val1"=>"41,514,200"),
-        );
+    public function charges()
+    {
+        return [
+            [
+                'plaque' => 1,
+                'monthly_charge' => 459480000
+            ],
+            [
+                'plaque' => 8,
+                'monthly_charge' => 81760000
+            ],
+            [
+                'plaque' => 9,
+                'monthly_charge' => 63180000
+            ],
+            [
+                'plaque' => 10,
+                'monthly_charge' => 40780000
+            ],
+            [
+                'plaque' => 11,
+                'monthly_charge' => 59680000
+            ],
+            [
+                'plaque' => 12,
+                'monthly_charge' => 43540000
+            ],
+            [
+                'plaque' => 13,
+                'monthly_charge' => 51700000
+            ],
+            [
+                'plaque' => 14,
+                'monthly_charge' => 49800000
+            ],
+            [
+                'plaque' => 15,
+                'monthly_charge' => 50680000
+            ],
+            [
+                'plaque' => 16,
+                'monthly_charge' => 80740000
+            ],
+            [
+                'plaque' => 17,
+                'monthly_charge' => 89000000
+            ],
+            [
+                'plaque' => 18,
+                'monthly_charge' => 84360000
+            ],
+            [
+                'plaque' => 19,
+                'monthly_charge' => 52640000
+            ],
+            [
+                'plaque' => 20,
+                'monthly_charge' => 63560000
+            ],
+            [
+                'plaque' => 21,
+                'monthly_charge' => 85900000
+            ],
+            [
+                'plaque' => 22,
+                'monthly_charge' => 102600000
+            ],
+            [
+                'plaque' => 23,
+                'monthly_charge' => 73040000
+            ],
+            [
+                'plaque' => 24,
+                'monthly_charge' => 35020000
+            ],
+            [
+                'plaque' => 25,
+                'monthly_charge' => 32620000
+            ],
+            [
+                'plaque' => 26,
+                'monthly_charge' => 70820000
+            ],
+            [
+                'plaque' => 27,
+                'monthly_charge' => 69800000
+            ],
+            [
+                'plaque' => 28,
+                'monthly_charge' => 49520000
+            ],
+            [
+                'plaque' => 29,
+                'monthly_charge' => 76320000
+            ],
+            [
+                'plaque' => 30,
+                'monthly_charge' => 49720000
+            ],
+            [
+                'plaque' => 31,
+                'monthly_charge' => 68560000
+            ],
+            [
+                'plaque' => 32,
+                'monthly_charge' => 65260000
+            ],
+            [
+                'plaque' => 33,
+                'monthly_charge' => 50000000
+            ],
+            [
+                'plaque' => 34,
+                'monthly_charge' => 52080000
+            ],
+            [
+                'plaque' => 35,
+                'monthly_charge' => 56780000
+            ],
+            [
+                'plaque' => 36,
+                'monthly_charge' => 62340000
+            ],
+            [
+                'plaque' => 37,
+                'monthly_charge' => 71680000
+            ],
+            [
+                'plaque' => 38,
+                'monthly_charge' => 74720000
+            ],
+            [
+                'plaque' => 39,
+                'monthly_charge' => 74440000
+            ],
+            [
+                'plaque' => 40,
+                'monthly_charge' => 85180000
+            ],
+            [
+                'plaque' => 41,
+                'monthly_charge' => 84280000
+            ],
+            [
+                'plaque' => 42,
+                'monthly_charge' => 59500000
+            ],
+            [
+                'plaque' => 43,
+                'monthly_charge' => 85700000
+            ],
+            [
+                'plaque' => 44,
+                'monthly_charge' => 55700000
+            ],
+            [
+                'plaque' => 45,
+                'monthly_charge' => 45620000
+            ],
+            [
+                'plaque' => 46,
+                'monthly_charge' => 56160000
+            ],
+            [
+                'plaque' => 47,
+                'monthly_charge' => 44280000
+            ],
+            [
+                'plaque' => 48,
+                'monthly_charge' => 62380000
+            ],
+            [
+                'plaque' => 49,
+                'monthly_charge' => 87680000
+            ],
+            [
+                'plaque' => 50,
+                'monthly_charge' => 64440000
+            ],
+            [
+                'plaque' => 51,
+                'monthly_charge' => 76760000
+            ],
+            [
+                'plaque' => 52,
+                'monthly_charge' => 70380000
+            ],
+            [
+                'plaque' => 53,
+                'monthly_charge' => 61400000
+            ],
+            [
+                'plaque' => 54,
+                'monthly_charge' => 53500000
+            ],
+            [
+                'plaque' => 55,
+                'monthly_charge' => 53960000
+            ],
+            [
+                'plaque' => 56,
+                'monthly_charge' => 48060000
+            ],
+            [
+                'plaque' => 57,
+                'monthly_charge' => 63120000
+            ],
+            [
+                'plaque' => 58,
+                'monthly_charge' => 56160000
+            ],
+            [
+                'plaque' => 61,
+                'monthly_charge' => 55560000
+            ],
+            [
+                'plaque' => 62,
+                'monthly_charge' => 49280000
+            ],
+            [
+                'plaque' => 63,
+                'monthly_charge' => 62400000
+            ],
+            [
+                'plaque' => 64,
+                'monthly_charge' => 50480000
+            ],
+            [
+                'plaque' => 65,
+                'monthly_charge' => 104320000
+            ],
+            [
+                'plaque' => 66,
+                'monthly_charge' => 49720000
+            ],
+            [
+                'plaque' => 67,
+                'monthly_charge' => 51860000
+            ],
+            [
+                'plaque' => 68,
+                'monthly_charge' => 35100000
+            ],
+            [
+                'plaque' => 69,
+                'monthly_charge' => 64380000
+            ],
+            [
+                'plaque' => 70,
+                'monthly_charge' => 68880000
+            ],
+            [
+                'plaque' => 71,
+                'monthly_charge' => 64920000
+            ],
+            [
+                'plaque' => 72,
+                'monthly_charge' => 56280000
+            ],
+            [
+                'plaque' => 73,
+                'monthly_charge' => 61580000
+            ],
+            [
+                'plaque' => 74,
+                'monthly_charge' => 56420000
+            ],
+            [
+                'plaque' => 75,
+                'monthly_charge' => 44740000
+            ],
+            [
+                'plaque' => 76,
+                'monthly_charge' => 46980000
+            ],
+            [
+                'plaque' => 77,
+                'monthly_charge' => 47720000
+            ],
+            [
+                'plaque' => 78,
+                'monthly_charge' => 48920000
+            ],
+            [
+                'plaque' => 79,
+                'monthly_charge' => 48720000
+            ],
+            [
+                'plaque' => 80,
+                'monthly_charge' => 32620000
+            ],
+            [
+                'plaque' => 81,
+                'monthly_charge' => 56640000
+            ],
+            [
+                'plaque' => 82,
+                'monthly_charge' => 35000000
+            ],
+            [
+                'plaque' => 83,
+                'monthly_charge' => 43700000
+            ],
+            [
+                'plaque' => 84,
+                'monthly_charge' => 42640000
+            ],
+            [
+                'plaque' => 85,
+                'monthly_charge' => 43260000
+            ],
+            [
+                'plaque' => 86,
+                'monthly_charge' => 42500000
+            ],
+            [
+                'plaque' => 87,
+                'monthly_charge' => 41060000
+            ],
+            [
+                'plaque' => 88,
+                'monthly_charge' => 48020000
+            ],
+            [
+                'plaque' => 89,
+                'monthly_charge' => 46980000
+            ],
+            [
+                'plaque' => 90,
+                'monthly_charge' => 44780000
+            ],
+            [
+                'plaque' => 91,
+                'monthly_charge' => 45780000
+            ],
+            [
+                'plaque' => 92,
+                'monthly_charge' => 40220000
+            ],
+            [
+                'plaque' => 93,
+                'monthly_charge' => 49320000
+            ],
+            [
+                'plaque' => 94,
+                'monthly_charge' => 49860000
+            ],
+            [
+                'plaque' => 95,
+                'monthly_charge' => 49600000
+            ],
+            [
+                'plaque' => 96,
+                'monthly_charge' => 49100000
+            ],
+            [
+                'plaque' => 97,
+                'monthly_charge' => 49420000
+            ],
+            [
+                'plaque' => 98,
+                'monthly_charge' => 46440000
+            ],
+            [
+                'plaque' => 99,
+                'monthly_charge' => 58940000
+            ],
+            [
+                'plaque' => 100,
+                'monthly_charge' => 48360000
+            ],
+            [
+                'plaque' => 101,
+                'monthly_charge' => 48320000
+            ],
+            [
+                'plaque' => 102,
+                'monthly_charge' => 48400000
+            ],
+            [
+                'plaque' => 103,
+                'monthly_charge' => 48220000
+            ],
+            [
+                'plaque' => 104,
+                'monthly_charge' => 44540000
+            ],
+            [
+                'plaque' => 105,
+                'monthly_charge' => 37440000
+            ],
+            [
+                'plaque' => 106,
+                'monthly_charge' => 55560000
+            ],
+            [
+                'plaque' => 107,
+                'monthly_charge' => 30540000
+            ],
+            [
+                'plaque' => 108,
+                'monthly_charge' => 64940000
+            ],
+            [
+                'plaque' => 109,
+                'monthly_charge' => 67580000
+            ],
+            [
+                'plaque' => 110,
+                'monthly_charge' => 54800000
+            ],
+            [
+                'plaque' => 111,
+                'monthly_charge' => 65060000
+            ],
+            [
+                'plaque' => 112,
+                'monthly_charge' => 58540000
+            ],
+            [
+                'plaque' => 113,
+                'monthly_charge' => 51760000
+            ],
+            [
+                'plaque' => 114,
+                'monthly_charge' => 33560000
+            ],
+            [
+                'plaque' => 115,
+                'monthly_charge' => 63740000
+            ],
+            [
+                'plaque' => 201,
+                'monthly_charge' => 360700000
+            ],
+            [
+                'plaque' => 202,
+                'monthly_charge' => 47900000
+            ],
+            [
+                'plaque' => 203,
+                'monthly_charge' => 55800000
+            ],
+            [
+                'plaque' => 204,
+                'monthly_charge' => 69660000
+            ],
+            [
+                'plaque' => 205,
+                'monthly_charge' => 50260000
+            ],
+            [
+                'plaque' => 206,
+                'monthly_charge' => 48560000
+            ],
+            [
+                'plaque' => 207,
+                'monthly_charge' => 79820000
+            ],
+            [
+                'plaque' => 208,
+                'monthly_charge' => 36620000
+            ],
+            [
+                'plaque' => 209,
+                'monthly_charge' => 39200000
+            ],
+            [
+                'plaque' => 210,
+                'monthly_charge' => 64640000
+            ],
+            [
+                'plaque' => 211,
+                'monthly_charge' => 64820000
+            ],
+            [
+                'plaque' => 212,
+                'monthly_charge' => 65420000
+            ],
+            [
+                'plaque' => 213,
+                'monthly_charge' => 54860000
+            ],
+            [
+                'plaque' => 214,
+                'monthly_charge' => 72260000
+            ],
+            [
+                'plaque' => 215,
+                'monthly_charge' => 59760000
+            ],
+            [
+                'plaque' => 216,
+                'monthly_charge' => 82480000
+            ],
+            [
+                'plaque' => 217,
+                'monthly_charge' => 72180000
+            ],
+            [
+                'plaque' => 218,
+                'monthly_charge' => 94840000
+            ],
+            [
+                'plaque' => 219,
+                'monthly_charge' => 65960000
+            ],
+            [
+                'plaque' => 220,
+                'monthly_charge' => 41420000
+            ],
+            [
+                'plaque' => 221,
+                'monthly_charge' => 41760000
+            ],
+            [
+                'plaque' => 222,
+                'monthly_charge' => 47580000
+            ],
+            [
+                'plaque' => 223,
+                'monthly_charge' => 43360000
+            ],
+            [
+                'plaque' => 224,
+                'monthly_charge' => 71580000
+            ],
+            [
+                'plaque' => 226,
+                'monthly_charge' => 58100000
+            ],
+            [
+                'plaque' => 227,
+                'monthly_charge' => 71200000
+            ],
+            [
+                'plaque' => 228,
+                'monthly_charge' => 72060000
+            ],
+            [
+                'plaque' => 229,
+                'monthly_charge' => 66220000
+            ],
+            [
+                'plaque' => 230,
+                'monthly_charge' => 64280000
+            ],
+            [
+                'plaque' => 231,
+                'monthly_charge' => 69120000
+            ],
+            [
+                'plaque' => 232,
+                'monthly_charge' => 106920000
+            ],
+            [
+                'plaque' => 233,
+                'monthly_charge' => 116800000
+            ],
+            [
+                'plaque' => 234,
+                'monthly_charge' => 118780000
+            ],
+            [
+                'plaque' => 235,
+                'monthly_charge' => 119740000
+            ],
+            [
+                'plaque' => 236,
+                'monthly_charge' => 138500000
+            ],
+            [
+                'plaque' => 237,
+                'monthly_charge' => 121900000
+            ],
+            [
+                'plaque' => 238,
+                'monthly_charge' => 91200000
+            ],
+            [
+                'plaque' => 239,
+                'monthly_charge' => 44840000
+            ],
+            [
+                'plaque' => 240,
+                'monthly_charge' => 49100000
+            ],
+            [
+                'plaque' => 241,
+                'monthly_charge' => 98080000
+            ],
+            [
+                'plaque' => 242,
+                'monthly_charge' => 81740000
+            ],
+            [
+                'plaque' => 243,
+                'monthly_charge' => 83380000
+            ],
+            [
+                'plaque' => 244,
+                'monthly_charge' => 69240000
+            ],
+            [
+                'plaque' => 245,
+                'monthly_charge' => 74180000
+            ],
+            [
+                'plaque' => 246,
+                'monthly_charge' => 95560000
+            ],
+            [
+                'plaque' => 247,
+                'monthly_charge' => 53760000
+            ],
+            [
+                'plaque' => 248,
+                'monthly_charge' => 68100000
+            ],
+            [
+                'plaque' => 249,
+                'monthly_charge' => 80440000
+            ],
+            [
+                'plaque' => 250,
+                'monthly_charge' => 85140000
+            ],
+            [
+                'plaque' => 251,
+                'monthly_charge' => 94540000
+            ],
+            [
+                'plaque' => 252,
+                'monthly_charge' => 123040000
+            ],
+            [
+                'plaque' => 253,
+                'monthly_charge' => 51580000
+            ],
+            [
+                'plaque' => 254,
+                'monthly_charge' => 51680000
+            ],
+            [
+                'plaque' => 255,
+                'monthly_charge' => 84300000
+            ],
+            [
+                'plaque' => 256,
+                'monthly_charge' => 64720000
+            ],
+            [
+                'plaque' => 257,
+                'monthly_charge' => 57840000
+            ],
+            [
+                'plaque' => 258,
+                'monthly_charge' => 41820000
+            ],
+            [
+                'plaque' => 259,
+                'monthly_charge' => 55920000
+            ],
+            [
+                'plaque' => 260,
+                'monthly_charge' => 75940000
+            ],
+            [
+                'plaque' => 261,
+                'monthly_charge' => 186360000
+            ],
+            [
+                'plaque' => 262,
+                'monthly_charge' => 251100000
+            ],
+            [
+                'plaque' => 263,
+                'monthly_charge' => 47000000
+            ],
+            [
+                'plaque' => 264,
+                'monthly_charge' => 42700000
+            ],
+            [
+                'plaque' => 265,
+                'monthly_charge' => 41900000
+            ],
+            [
+                'plaque' => 266,
+                'monthly_charge' => 48960000
+            ],
+            [
+                'plaque' => 267,
+                'monthly_charge' => 39940000
+            ],
+            [
+                'plaque' => 268,
+                'monthly_charge' => 52920000
+            ],
+            [
+                'plaque' => 269,
+                'monthly_charge' => 34880000
+            ],
+            [
+                'plaque' => 270,
+                'monthly_charge' => 77780000
+            ],
+            [
+                'plaque' => 271,
+                'monthly_charge' => 59560000
+            ],
+            [
+                'plaque' => 272,
+                'monthly_charge' => 69860000
+            ],
+            [
+                'plaque' => 273,
+                'monthly_charge' => 93460000
+            ],
+            [
+                'plaque' => 301,
+                'monthly_charge' => 153620000
+            ],
+            [
+                'plaque' => 302,
+                'monthly_charge' => 59180000
+            ],
+            [
+                'plaque' => 303,
+                'monthly_charge' => 43720000
+            ],
+            [
+                'plaque' => 304,
+                'monthly_charge' => 43140000
+            ],
+            [
+                'plaque' => 305,
+                'monthly_charge' => 43780000
+            ],
+            [
+                'plaque' => 306,
+                'monthly_charge' => 60160000
+            ],
+            [
+                'plaque' => 307,
+                'monthly_charge' => 93100000
+            ],
+            [
+                'plaque' => 308,
+                'monthly_charge' => 55920000
+            ],
+            [
+                'plaque' => 309,
+                'monthly_charge' => 28300000
+            ],
+            [
+                'plaque' => 310,
+                'monthly_charge' => 36720000
+            ],
+            [
+                'plaque' => 311,
+                'monthly_charge' => 57740000
+            ],
+            [
+                'plaque' => 312,
+                'monthly_charge' => 55960000
+            ],
+            [
+                'plaque' => 313,
+                'monthly_charge' => 38180000
+            ],
+            [
+                'plaque' => 314,
+                'monthly_charge' => 39780000
+            ],
+            [
+                'plaque' => 315,
+                'monthly_charge' => 42260000
+            ],
+            [
+                'plaque' => 316,
+                'monthly_charge' => 56760000
+            ],
+            [
+                'plaque' => 317,
+                'monthly_charge' => 57600000
+            ],
+            [
+                'plaque' => 318,
+                'monthly_charge' => 36380000
+            ],
+            [
+                'plaque' => 319,
+                'monthly_charge' => 67380000
+            ],
+            [
+                'plaque' => 320,
+                'monthly_charge' => 51220000
+            ],
+            [
+                'plaque' => 321,
+                'monthly_charge' => 81960000
+            ],
+            [
+                'plaque' => 322,
+                'monthly_charge' => 84680000
+            ],
+            [
+                'plaque' => 323,
+                'monthly_charge' => 71420000
+            ],
+            [
+                'plaque' => 324,
+                'monthly_charge' => 60420000
+            ],
+            [
+                'plaque' => 325,
+                'monthly_charge' => 65200000
+            ],
+            [
+                'plaque' => 326,
+                'monthly_charge' => 64820000
+            ],
+            [
+                'plaque' => 327,
+                'monthly_charge' => 79140000
+            ],
+            [
+                'plaque' => 328,
+                'monthly_charge' => 90880000
+            ],
+            [
+                'plaque' => 329,
+                'monthly_charge' => 56460000
+            ],
+            [
+                'plaque' => 330,
+                'monthly_charge' => 56380000
+            ],
+            [
+                'plaque' => 331,
+                'monthly_charge' => 50580000
+            ],
+            [
+                'plaque' => 332,
+                'monthly_charge' => 71440000
+            ],
+            [
+                'plaque' => 333,
+                'monthly_charge' => 71820000
+            ],
+            [
+                'plaque' => 334,
+                'monthly_charge' => 57340000
+            ],
+            [
+                'plaque' => 335,
+                'monthly_charge' => 58640000
+            ],
+            [
+                'plaque' => 336,
+                'monthly_charge' => 61700000
+            ],
+            [
+                'plaque' => 337,
+                'monthly_charge' => 55100000
+            ],
+            [
+                'plaque' => 338,
+                'monthly_charge' => 79900000
+            ],
+            [
+                'plaque' => 339,
+                'monthly_charge' => 82440000
+            ],
+            [
+                'plaque' => 340,
+                'monthly_charge' => 74860000
+            ],
+            [
+                'plaque' => 341,
+                'monthly_charge' => 49680000
+            ],
+            [
+                'plaque' => 342,
+                'monthly_charge' => 25540000
+            ],
+            [
+                'plaque' => 343,
+                'monthly_charge' => 57580000
+            ],
+            [
+                'plaque' => 344,
+                'monthly_charge' => 44840000
+            ],
+            [
+                'plaque' => 345,
+                'monthly_charge' => 63000000
+            ],
+            [
+                'plaque' => 346,
+                'monthly_charge' => 75940000
+            ],
+            [
+                'plaque' => 347,
+                'monthly_charge' => 47960000
+            ],
+            [
+                'plaque' => 348,
+                'monthly_charge' => 60420000
+            ],
+            [
+                'plaque' => 349,
+                'monthly_charge' => 55060000
+            ],
+            [
+                'plaque' => 350,
+                'monthly_charge' => 70380000
+            ],
+            [
+                'plaque' => 351,
+                'monthly_charge' => 98260000
+            ],
+            [
+                'plaque' => 352,
+                'monthly_charge' => 39080000
+            ],
+            [
+                'plaque' => 353,
+                'monthly_charge' => 40240000
+            ],
+            [
+                'plaque' => 354,
+                'monthly_charge' => 51680000
+            ],
+            [
+                'plaque' => 355,
+                'monthly_charge' => 26800000
+            ],
+            [
+                'plaque' => 356,
+                'monthly_charge' => 92720000
+            ],
+            [
+                'plaque' => 357,
+                'monthly_charge' => 44080000
+            ],
+            [
+                'plaque' => 358,
+                'monthly_charge' => 40300000
+            ],
+            [
+                'plaque' => 359,
+                'monthly_charge' => 62020000
+            ],
+            [
+                'plaque' => 360,
+                'monthly_charge' => 69080000
+            ],
+            [
+                'plaque' => 361,
+                'monthly_charge' => 40740000
+            ],
+            [
+                'plaque' => 362,
+                'monthly_charge' => 48140000
+            ],
+            [
+                'plaque' => 363,
+                'monthly_charge' => 59760000
+            ],
+            [
+                'plaque' => 364,
+                'monthly_charge' => 34980000
+            ],
+            [
+                'plaque' => 365,
+                'monthly_charge' => 37780000
+            ],
+            [
+                'plaque' => 366,
+                'monthly_charge' => 61460000
+            ],
+            [
+                'plaque' => 367,
+                'monthly_charge' => 62620000
+            ],
+            [
+                'plaque' => 368,
+                'monthly_charge' => 82700000
+            ],
+            [
+                'plaque' => 369,
+                'monthly_charge' => 95140000
+            ],
+            [
+                'plaque' => 370,
+                'monthly_charge' => 72660000
+            ],
+            [
+                'plaque' => 371,
+                'monthly_charge' => 73180000
+            ],
+            [
+                'plaque' => 372,
+                'monthly_charge' => 44580000
+            ],
+            [
+                'plaque' => 373,
+                'monthly_charge' => 45660000
+            ],
+            [
+                'plaque' => 374,
+                'monthly_charge' => 70780000
+            ],
+            [
+                'plaque' => 375,
+                'monthly_charge' => 43720000
+            ],
+            [
+                'plaque' => 376,
+                'monthly_charge' => 44180000
+            ],
+            [
+                'plaque' => 377,
+                'monthly_charge' => 72980000
+            ],
+            [
+                'plaque' => 378,
+                'monthly_charge' => 33580000
+            ],
+            [
+                'plaque' => 379,
+                'monthly_charge' => 37420000
+            ],
+            [
+                'plaque' => 380,
+                'monthly_charge' => 36120000
+            ],
+            [
+                'plaque' => 381,
+                'monthly_charge' => 34500000
+            ],
+            [
+                'plaque' => 382,
+                'monthly_charge' => 57720000
+            ],
+            [
+                'plaque' => 383,
+                'monthly_charge' => 46100000
+            ],
+            [
+                'plaque' => 384,
+                'monthly_charge' => 55180000
+            ],
+            [
+                'plaque' => 385,
+                'monthly_charge' => 67780000
+            ],
+            [
+                'plaque' => 386,
+                'monthly_charge' => 32360000
+            ],
+            [
+                'plaque' => 387,
+                'monthly_charge' => 31660000
+            ],
+            [
+                'plaque' => 388,
+                'monthly_charge' => 33820000
+            ],
+            [
+                'plaque' => 401,
+                'monthly_charge' => 90260000
+            ],
+            [
+                'plaque' => 402,
+                'monthly_charge' => 100460000
+            ],
+            [
+                'plaque' => 403,
+                'monthly_charge' => 101420000
+            ],
+            [
+                'plaque' => 404,
+                'monthly_charge' => 114420000
+            ],
+            [
+                'plaque' => 405,
+                'monthly_charge' => 98480000
+            ],
+            [
+                'plaque' => 406,
+                'monthly_charge' => 95560000
+            ],
+            [
+                'plaque' => 407,
+                'monthly_charge' => 92520000
+            ],
+            [
+                'plaque' => 408,
+                'monthly_charge' => 91820000
+            ],
+            [
+                'plaque' => 409,
+                'monthly_charge' => 59040000
+            ],
+            [
+                'plaque' => 410,
+                'monthly_charge' => 102820000
+            ],
+            [
+                'plaque' => 411,
+                'monthly_charge' => 84740000
+            ],
+            [
+                'plaque' => 412,
+                'monthly_charge' => 82860000
+            ],
+            [
+                'plaque' => 413,
+                'monthly_charge' => 86140000
+            ],
+            [
+                'plaque' => 414,
+                'monthly_charge' => 71820000
+            ],
+            [
+                'plaque' => 415,
+                'monthly_charge' => 100160000
+            ],
+            [
+                'plaque' => 416,
+                'monthly_charge' => 77560000
+            ],
+            [
+                'plaque' => 417,
+                'monthly_charge' => 76280000
+            ],
+            [
+                'plaque' => 418,
+                'monthly_charge' => 57100000
+            ],
+            [
+                'plaque' => 419,
+                'monthly_charge' => 81980000
+            ],
+            [
+                'plaque' => 420,
+                'monthly_charge' => 97900000
+            ],
+            [
+                'plaque' => 421,
+                'monthly_charge' => 97200000
+            ],
+            [
+                'plaque' => 422,
+                'monthly_charge' => 72980000
+            ],
+            [
+                'plaque' => 423,
+                'monthly_charge' => 65920000
+            ],
+            [
+                'plaque' => 424,
+                'monthly_charge' => 94400000
+            ],
+            [
+                'plaque' => 425,
+                'monthly_charge' => 108320000
+            ],
+            [
+                'plaque' => 426,
+                'monthly_charge' => 83020000
+            ],
+            [
+                'plaque' => 501,
+                'monthly_charge' => 90260000
+            ],
+            [
+                'plaque' => 502,
+                'monthly_charge' => 100460000
+            ],
+            [
+                'plaque' => 503,
+                'monthly_charge' => 101420000
+            ],
+            [
+                'plaque' => 504,
+                'monthly_charge' => 114420000
+            ],
+            [
+                'plaque' => 505,
+                'monthly_charge' => 98480000
+            ],
+            [
+                'plaque' => 506,
+                'monthly_charge' => 95560000
+            ],
+            [
+                'plaque' => 507,
+                'monthly_charge' => 92520000
+            ],
+            [
+                'plaque' => 508,
+                'monthly_charge' => 91820000
+            ],
+            [
+                'plaque' => 509,
+                'monthly_charge' => 59040000
+            ],
+            [
+                'plaque' => 510,
+                'monthly_charge' => 102820000
+            ],
+            [
+                'plaque' => 511,
+                'monthly_charge' => 84740000
+            ],
+            [
+                'plaque' => 512,
+                'monthly_charge' => 82860000
+            ],
+            [
+                'plaque' => 513,
+                'monthly_charge' => 86140000
+            ],
+            [
+                'plaque' => 514,
+                'monthly_charge' => 71820000
+            ],
+            [
+                'plaque' => 515,
+                'monthly_charge' => 100160000
+            ],
+            [
+                'plaque' => 516,
+                'monthly_charge' => 77560000
+            ],
+            [
+                'plaque' => 517,
+                'monthly_charge' => 76280000
+            ],
+            [
+                'plaque' => 518,
+                'monthly_charge' => 57100000
+            ],
+            [
+                'plaque' => 519,
+                'monthly_charge' => 81980000
+            ],
+            [
+                'plaque' => 520,
+                'monthly_charge' => 97900000
+            ],
+            [
+                'plaque' => 521,
+                'monthly_charge' => 97200000
+            ],
+            [
+                'plaque' => 522,
+                'monthly_charge' => 72980000
+            ],
+            [
+                'plaque' => 523,
+                'monthly_charge' => 65920000
+            ],
+            [
+                'plaque' => 524,
+                'monthly_charge' => 94400000
+            ],
+            [
+                'plaque' => 525,
+                'monthly_charge' => 108320000
+            ],
+            [
+                'plaque' => 526,
+                'monthly_charge' => 83020000
+            ],
+            [
+                'plaque' => 601,
+                'monthly_charge' => 90260000
+            ],
+            [
+                'plaque' => 602,
+                'monthly_charge' => 100460000
+            ],
+            [
+                'plaque' => 603,
+                'monthly_charge' => 101420000
+            ],
+            [
+                'plaque' => 604,
+                'monthly_charge' => 114420000
+            ],
+            [
+                'plaque' => 605,
+                'monthly_charge' => 98480000
+            ],
+            [
+                'plaque' => 606,
+                'monthly_charge' => 95560000
+            ],
+            [
+                'plaque' => 607,
+                'monthly_charge' => 92520000
+            ],
+            [
+                'plaque' => 608,
+                'monthly_charge' => 91820000
+            ],
+            [
+                'plaque' => 609,
+                'monthly_charge' => 59040000
+            ],
+            [
+                'plaque' => 610,
+                'monthly_charge' => 102820000
+            ],
+            [
+                'plaque' => 611,
+                'monthly_charge' => 84740000
+            ],
+            [
+                'plaque' => 612,
+                'monthly_charge' => 82860000
+            ],
+            [
+                'plaque' => 613,
+                'monthly_charge' => 86140000
+            ],
+            [
+                'plaque' => 614,
+                'monthly_charge' => 71820000
+            ],
+            [
+                'plaque' => 615,
+                'monthly_charge' => 100160000
+            ],
+            [
+                'plaque' => 616,
+                'monthly_charge' => 77560000
+            ],
+            [
+                'plaque' => 617,
+                'monthly_charge' => 76280000
+            ],
+            [
+                'plaque' => 618,
+                'monthly_charge' => 57100000
+            ],
+            [
+                'plaque' => 619,
+                'monthly_charge' => 81980000
+            ],
+            [
+                'plaque' => 620,
+                'monthly_charge' => 97900000
+            ],
+            [
+                'plaque' => 621,
+                'monthly_charge' => 97200000
+            ],
+            [
+                'plaque' => 622,
+                'monthly_charge' => 72980000
+            ],
+            [
+                'plaque' => 623,
+                'monthly_charge' => 65920000
+            ],
+            [
+                'plaque' => 624,
+                'monthly_charge' => 94400000
+            ],
+            [
+                'plaque' => 625,
+                'monthly_charge' => 108320000
+            ],
+            [
+                'plaque' => 626,
+                'monthly_charge' => 83020000
+            ],
+        ];
     }
 }
 

@@ -23,6 +23,7 @@ class MonthlyChargeController extends Controller {
                                     });
                                 })
                                 ->where('tenant_id' , $tenant->id)
+            ->orderBy('id')
                                 ->get();
         $debts = Debt::query()
                      ->where('tenant_id' , $tenant->id)

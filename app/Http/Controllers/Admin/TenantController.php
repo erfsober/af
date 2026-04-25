@@ -129,6 +129,7 @@ class TenantController extends Controller {
                                     });
                                 })
                                 ->where('tenant_id' , $id)
+                                ->orderBy('id')
                                 ->get();
         $debts = Debt::query()
                      ->where('tenant_id' , $tenant->id)

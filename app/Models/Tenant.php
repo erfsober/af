@@ -210,6 +210,9 @@ class Tenant extends Authenticatable implements HasMedia {
                 ->addMonths($i - 1)
                 ->startMonth()
                 ->toCarbon();
+            if ($i == 1) {
+                $due_date->addDays(5);
+            }
             MonthlyCharge::query()
                          ->firstOrCreate([
                                              'fiscal_year_id' => $fiscal_year->id ,
