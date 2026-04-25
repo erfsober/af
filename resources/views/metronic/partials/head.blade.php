@@ -11,8 +11,6 @@
     </title>
     <meta name="description" content="{{ env('APP_NAME') }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
-    <link href='https://fonts.googleapis.com/css?family=Noto Sans Arabic:300,400,500,600,700' rel='stylesheet'>
     <link href="{{ asset('metronic-assets/plugins/custom/fullcalendar/fullcalendar.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('metronic-assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('metronic-assets/plugins/custom/prismjs/prismjs.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
