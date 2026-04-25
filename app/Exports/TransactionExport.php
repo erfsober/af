@@ -5,9 +5,12 @@ namespace App\Exports;
 use App\Models\Transaction;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Builder;
+use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Events\AfterSheet;
+use PhpOffice\PhpSpreadsheet\Worksheet\PageSetup;
 
-class TransactionExport implements FromView {
+class TransactionExport implements FromView , WithEvents {
     public $started_at;
     public $ended_at;
     public $transaction_type;
@@ -52,5 +55,13 @@ class TransactionExport implements FromView {
                                          ->orderByDesc('id')
                                          ->get() ,
         ]);
+    }
+
+    public function registerEvents (): array {
+        return [
+            AfterSheet::class => function ( AfterSheet $event ) {
+                $event->sheet->getDelegate()->getPageSetup()->setOrientation(PageSetup::ORIENTATION_LANDSCAPE);
+            } ,
+        ];
     }
 }
