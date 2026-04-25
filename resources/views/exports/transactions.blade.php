@@ -24,8 +24,8 @@
             <td>{{ number_format($transaction->amount) }}</td>
             <td>{{ number_format($transaction->discountAmount()) }}</td>
             <td>{{ number_format($transaction->penaltyAmount()) }}</td>
-            <td>{{ number_format($transaction->discountPercent()) }}</td>
-            <td>{{ number_format($transaction->penaltyPercent()) }}</td>
+            <td>{{ $transaction->discountPercent() }}</td>
+            <td>{{ $transaction->penaltyPercent() }}</td>
         </tr>
     @endforeach
     </tbody>
