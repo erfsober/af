@@ -109,6 +109,11 @@ class MonthlyCharge extends Model {
     }
 
     public function getSubjectAndMonthAttribute () {
-        return "پرداخت شارژ " . $this->financial_month_name;
+        if ($this->fiscalYear->year == '1405'){
+            return "پرداخت شارژ " . $this->new_financial_month_name;
+
+        }else{
+            return "پرداخت شارژ " . $this->financial_month_name;
+        }
     }
 }
