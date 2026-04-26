@@ -244,6 +244,7 @@ class Tenant extends Authenticatable implements HasMedia {
 
     public function getFirstUnpaidMonthlyCharge () {
         return $first_unpaid_monthly_charge = MonthlyCharge::query()
+            ->orderBy('id')
                                                            ->where('tenant_id' , $this->id)
                                                            ->notPaid()
                                                            ->first();
