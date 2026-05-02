@@ -12,8 +12,8 @@ return array(
             'https://cdn.jsdelivr.net/npm/@flasher/flasher-toastr@1.3.2/dist/flasher-toastr.min.js',
         ),
         'local' => array(
-            '/vendor/flasher/jquery.min.js',
-            '/vendor/flasher/flasher-toastr.min.js',
+            '/frontend/flasher/jquery.min.js',
+            '/frontend/flasher/flasher-toastr.min.js',
         ),
     ),
     'styles' => array(
@@ -21,7 +21,7 @@ return array(
             'https://cdn.jsdelivr.net/npm/@flasher/flasher-toastr@1.3.2/dist/flasher-toastr.min.css',
         ),
         'local' => array(
-            '/vendor/flasher/flasher-toastr.min.css',
+            '/frontend/flasher/flasher-toastr.min.css',
         ),
     ),
 );

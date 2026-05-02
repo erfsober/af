@@ -51,7 +51,7 @@ return array(
     */
     'root_script' => array(
         'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.2/dist/flasher.min.js',
-        'local' => '/vendor/flasher/flasher.min.js',
+        'local' => '/frontend/flasher/flasher.min.js',
     ),
 
     /*
@@ -71,7 +71,7 @@ return array(
     */
     'styles' => array(
         'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.3.2/dist/flasher.min.css',
-        'local' => '/vendor/flasher/flasher.min.css',
+        'local' => '/frontend/flasher/flasher.min.css',
     ),
 
     /*
