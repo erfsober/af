@@ -112,6 +112,9 @@ class MonthlyCharge extends Model {
                 return $this->original_amount;
             }
             else {
+                if ($this->tenant->plaque === '1'){
+                    $discount_percent = 38;
+                }
                 return ( ( 100 - $discount_percent ) / 100 ) * $this->original_amount;
             }
         }
