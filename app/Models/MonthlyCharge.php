@@ -94,27 +94,12 @@ class MonthlyCharge extends Model {
             #
             $discount_percent = 10;
 
-            if ($this->tenant->plaque === '201' && Carbon::parse($this->due_date)->equalTo('2026-05-22 00:00:00')){
-                $discount_percent = 20;
-            }
-
-            // check if 10 days passed from $this->due_date
-            if (Carbon::parse('2026-05-21')
-                ->isFuture() && Carbon::parse($this->due_date)->equalTo('2026-04-26 00:00:00')){
-                if ($this->tenant->plaque === '1'){
-                    $discount_percent = 38;
-                }
-                return ( ( 100 - $discount_percent ) / 100 ) * $this->original_amount;
-            }
             if ( Carbon::parse($this->due_date)
                        ->isPast() && Carbon::parse($this->due_date)
                                            ->diffInDays(Carbon::now()) >= 5 ) {
                 return $this->original_amount;
             }
             else {
-                if ($this->tenant->plaque === '1'){
-                    $discount_percent = 38;
-                }
                 return ( ( 100 - $discount_percent ) / 100 ) * $this->original_amount;
             }
         }
