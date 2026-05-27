@@ -93,10 +93,15 @@ class MonthlyCharge extends Model {
             }
             #
             $discount_percent = 10;
+            $takhfif_days = 5;
+
+            if ($this->tenant->plaque === '1' || $this->tenant->plaque === '201' ) {
+                $takhfif_days = 15;
+            }
 
             if ( Carbon::parse($this->due_date)
                        ->isPast() && Carbon::parse($this->due_date)
-                                           ->diffInDays(Carbon::now()) >= 5 ) {
+                                           ->diffInDays(Carbon::now()) >= $takhfif_days ) {
                 return $this->original_amount;
             }
             else {
