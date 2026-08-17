@@ -36,7 +36,7 @@ class Dorsa
     }
 
     // Make a purchase transaction
-    public function makePurchaseTransaction($amount, $local_id)
+    public function makePurchaseTransaction($amount, $local_id, $mobileNumber = null)
     {
         $response = Http::withHeaders([
                                           'Authorization' => 'Bearer ' . $this->token,
@@ -49,7 +49,7 @@ class Dorsa
             'callbackApi' => route('web.verify'),
             //'callbackApi' => "http://aftabfars.com",
             'payerMail' => "**************",
-            'mobileNumber' => "**************",
+            'mobileNumber' => $mobileNumber ?? "**************",
             'terminalNumber' => config('services.dorsa.terminal_id'),
         ]);
 

@@ -66,6 +66,7 @@ class TransactionController extends Controller {
     public function generateUrl ( Request $request ) {
 
         $transaction = null;
+        $phoneNumber = \auth()->guard('tenant')->user()->phone_number;
         if ( $monthly_charge_id = $request->get('monthly_charge_id') ) {
             $monthly_charge = MonthlyCharge::query()
                                            ->where('id' , $monthly_charge_id)
@@ -203,7 +204,7 @@ class TransactionController extends Controller {
         }
         if ( $request->get('gateway') == 'pasargad' ) {
             $dorsa = new Dorsa();
-            $result = $dorsa->makePurchaseTransaction($transaction->amount , $transaction->id);
+            $result = $dorsa->makePurchaseTransaction($transaction->amount , $transaction->id, $phoneNumber);
             $transaction->tx_id = $result[ 'urlId' ];
             $transaction->paid_via = Transaction::PAID_VIA[ 'PASARGAD' ];
             $transaction->save();
